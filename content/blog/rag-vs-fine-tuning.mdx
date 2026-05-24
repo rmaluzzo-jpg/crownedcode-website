@@ -1,0 +1,72 @@
+---
+title: "RAG vs fine-tuning: which does your business actually need?"
+description: "A decision framework for the two most-confused AI patterns. When you want retrieval, when you want training, and the third option most teams should pick first."
+date: "2026-04-28"
+author: "Crowned Code"
+tags: ["AI Integration", "RAG"]
+---
+
+If you've talked to more than two AI vendors in the last year, you've heard both terms used as if they were interchangeable solutions to the same problem. They aren't. RAG and fine-tuning solve different things, cost different amounts, and fail in different ways. Picking the wrong one is one of the most expensive mistakes a non-technical buyer can make. Here's how we explain the difference to clients.
+
+## The one-line summary
+
+**RAG** (Retrieval-Augmented Generation) gives the model access to your data at the moment it answers a question. **Fine-tuning** teaches the model to *behave* a certain way by training it on examples. RAG changes what the model *knows*. Fine-tuning changes what the model *does*.
+
+If you want the model to answer questions about your contracts, your SOPs, your product catalog, your support history — that's RAG. If you want the model to consistently respond in a specific format, follow a specific tone, or perform a narrow task in a specific way — that's fine-tuning.
+
+## When RAG is the right call
+
+You should be looking at RAG if any of these are true:
+
+- The information the model needs to answer changes frequently (daily, weekly).
+- The information is proprietary and not in the model's training data.
+- Different users need answers grounded in different subsets of your data (access control matters).
+- You need citations — links back to the source document so a human can verify.
+- The volume of information is too large to fit in a prompt every time.
+
+Most "internal AI assistant" use cases are RAG cases. Your SOPs become a searchable knowledge base, your contracts become queryable, your support history becomes a system your new hires can learn from.
+
+The cost profile is mostly upfront engineering plus per-query inference cost. You're not training anything. You're building a search layer that the model uses as a tool.
+
+## When fine-tuning is the right call
+
+Fine-tuning makes sense when:
+
+- You have a narrow, well-defined task the model needs to perform consistently.
+- You have at least a few hundred high-quality examples of the input/output pattern you want.
+- The base model gets it *almost right* but needs to be more reliable.
+- Output format, tone, or style consistency matters more than retrieving facts.
+- You want to reduce per-call cost by using a smaller model that performs like a larger one.
+
+Classic fine-tuning cases: classifying inbound emails into specific categories, generating product descriptions in a brand voice, extracting structured data from unstructured documents in a consistent schema.
+
+The cost profile is significant upfront — collecting examples, running the training, evaluating — but lower per-call costs once deployed. You're paying for a one-time investment that compounds.
+
+## The third option most teams should try first
+
+Before you commit to either, try the boring option: **a good prompt with examples.**
+
+Modern foundation models can perform astonishingly well with in-context learning — meaning you give them a few examples of the task in the prompt itself, and they figure out the pattern. No training, no infrastructure, no vector database. Just careful prompt engineering and good examples.
+
+For probably half the use cases that get pitched as "we need to fine-tune," the right answer is "let's get a really good prompt with five well-chosen examples, run it for a few weeks, and see if it's good enough." It usually is. And when it isn't, you've learned exactly what's wrong, which makes the next step (RAG, fine-tuning, or both) cheaper to scope.
+
+## When you actually need both
+
+The advanced pattern that nobody tells you about: RAG and fine-tuning are not mutually exclusive. Production systems often use both — fine-tune the model to follow a specific output format and behavior pattern, then use RAG to feed it the right context for each query.
+
+A customer support agent might be fine-tuned to always respond in a specific empathetic tone and produce structured ticket updates, while using RAG to pull the customer's account history and the relevant knowledge base articles at query time. The fine-tuning handles *how*; the RAG handles *what*.
+
+But you almost never start here. You start with the boring option, measure where it breaks, and add the next layer when the data tells you to.
+
+## The cost question
+
+Rough order-of-magnitude numbers, because clients always ask:
+
+- **Good prompt + examples:** A few engineer-days. Per-call cost = model API price.
+- **RAG system:** 2-6 weeks of engineering for a real production system. Per-call cost = retrieval (cheap) + model API (mid).
+- **Fine-tuning a small model:** 1-4 weeks of data prep + training + eval. Per-call cost potentially much lower than a frontier model.
+- **Hybrid (RAG + fine-tune):** Add the two together, plus integration work.
+
+There is no universally right answer. There is a right answer for your specific workflow, given your specific data, your specific budget, and your specific tolerance for the system being slightly wrong sometimes.
+
+If you'd like help figuring out which one — or which combination — fits your case, [tell us about your project](/contact). We've built all three, and we'll tell you the truth about what we'd pick.

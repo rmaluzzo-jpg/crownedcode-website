@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette ported from legacy/index.html :root */
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-card: #181818;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c46e;
+  --color-gold-dim: rgba(201, 168, 76, 0.12);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #888888;
+  --color-text-muted: #555555;
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    /* scroll-behavior: smooth is removed — Lenis handles smooth scrolling */
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Lenis recommended overrides */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: #000;
+  }
+
+  /* Default View Transition: fast crossfade */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  .container-page {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 3.75rem;
+    }
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* ── CINEMATIC UTILITIES ───────────────────────────────────────── */
+
+@utility glow-gold {
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.35))
+    drop-shadow(0 0 16px rgba(201, 168, 76, 0.18));
+}
+
+@utility bloom-gold {
+  box-shadow:
+    0 0 0 0 rgba(201, 168, 76, 0.0),
+    0 0 18px 0 rgba(201, 168, 76, 0.18),
+    0 0 56px 0 rgba(201, 168, 76, 0.10),
+    0 8px 28px 0 rgba(201, 168, 76, 0.20);
+}
+
+@utility dof-blur-1 {
+  filter: blur(2px);
+}
+
+@utility dof-blur-2 {
+  filter: blur(5px);
+}
+
+/* ── KEYFRAMES ────────────────────────────────────────────────── */
+
+@keyframes cc-shimmer {
+  0% { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
+}
+
+@keyframes cc-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201,168,76,0.45), 0 0 24px 0 rgba(201,168,76,0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(201,168,76,0), 0 0 32px 4px rgba(201,168,76,0.35);
+  }
+}
+
+@keyframes cc-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes cc-crown-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(201,168,76,0.55)); }
+  50% { filter: drop-shadow(0 0 14px rgba(201,168,76,0.95)); }
+}
+
+.cc-pulse-dot {
+  animation: cc-glow-pulse 2.4s ease-in-out infinite;
+}
+
+.cc-float {
+  animation: cc-float 4s ease-in-out infinite;
+}
+
+.cc-crown-anim {
+  animation: cc-crown-glow 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-pulse-dot,
+  .cc-float,
+  .cc-crown-anim {
+    animation: none;
+  }
+}

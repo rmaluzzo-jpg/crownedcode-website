@@ -1,0 +1,64 @@
+---
+title: "How to think about AI integration as a business owner, not a developer"
+description: "A practical framework for evaluating where AI actually pays for itself in your business — and where it's a tax dressed up as innovation."
+date: "2026-05-12"
+author: "Crowned Code"
+tags: ["AI Integration", "Strategy"]
+---
+
+Every founder we talk to in 2026 has the same two questions about AI: *where should we be using it?* and *how do we stop falling behind?* The framing is wrong. Falling behind on what? Behind whom? AI is not a single thing, and "doing AI" is not a goal. It's a category of technology that, when applied to the right problem, produces measurable lift. Applied to the wrong problem, it produces a Slack channel full of demos that nobody uses.
+
+Here's the framework we walk every client through before we write a line of code.
+
+## Step one — find the workflows where humans are the bottleneck
+
+AI replaces or augments judgment. It does not replace data infrastructure, it does not fix broken processes, and it does not write your strategy. The places it pays for itself are places where:
+
+- A person currently reads something, decides something, and writes something.
+- That work happens at volume — dozens to thousands of times per day or week.
+- The decision is mostly bounded — there are rules, patterns, or precedents, even if no one's written them down.
+
+Triaging support tickets. Drafting first-pass responses to inbound leads. Extracting line items from invoices. Summarizing weekly account activity for client reviews. Categorizing inbound documents. These are the workloads where AI earns its keep. If a workflow doesn't fit that shape, AI isn't your highest-leverage move — fixing the upstream process probably is.
+
+## Step two — separate the model from the application
+
+This is where most companies get bled by vendors. The phrase "AI tool" obscures the fact that 90% of an AI feature is regular software: a database, an API, a UI, an auth layer, an audit log. The model is one component. The other 90% is the engineering that determines whether the thing is reliable, debuggable, and integrated with your actual systems.
+
+When a vendor sells you "AI for X," you are usually paying for:
+
+1. A wrapper around a foundation model that already exists.
+2. Some prompts that you could write yourself in a week.
+3. A subscription that scales with seats whether you use it or not.
+
+That isn't always wrong. Off-the-shelf tools are correct for general workflows that look the same across companies — sales call recording, generic chat, transcription. They are usually the wrong call when the value comes from being tightly coupled to *your* data, *your* customers, or *your* internal terminology. The more your workflow looks like your business, the more you want it custom.
+
+## Step three — measure something before you build anything
+
+Before any AI project starts, you should be able to write down one sentence: *"If this works, X will decrease/increase by Y, measured by Z."*
+
+- "Average ticket response time decreases from 4 hours to 30 minutes, measured by our helpdesk."
+- "Sales-qualified leads per week increases from 12 to 25, measured by CRM."
+- "Document processing cost per invoice decreases from $4.20 to under $0.50, measured by AP."
+
+If you cannot fill in that sentence, you do not have a project. You have an aesthetic. The number does not need to be precise — it needs to exist. Without it, you cannot tell whether you are succeeding, and you cannot push back when a vendor or consultant tells you that you are.
+
+## Step four — assume the model will change underneath you
+
+The single biggest mistake we see is teams hard-coupling their systems to a specific provider, a specific model version, or a specific prompt that "just works." Twelve months later the model is deprecated, the provider has raised prices, and nobody on the team remembers what the prompt was supposed to do.
+
+A serious AI system has:
+
+- A routing layer that lets you swap models without rewriting code.
+- A prompt versioning system so changes are reviewable.
+- An eval suite that catches regressions before customers do.
+- A cost dashboard so you can see what the system is spending in real time.
+
+These are not nice-to-haves. They are the difference between a system that survives its second year and one that gets quietly turned off.
+
+## Where to start
+
+If you are reading this and your business has not deployed any AI yet, the right first project is almost always the smallest one. Pick a single bounded workflow. Pick something where the people doing the work today are frustrated. Build the thing, measure the thing, and ship the thing in under six weeks.
+
+The point of the first project is not the project. It's to give your team — and your vendors — a clear story about what worked, what cost what, and what you'd do differently. That story is the most valuable thing AI gives you in year one. Everything after compounds from there.
+
+If you'd like to talk through what your first project should be, [send us a note](/contact). We'll tell you straight if we think it's worth building.

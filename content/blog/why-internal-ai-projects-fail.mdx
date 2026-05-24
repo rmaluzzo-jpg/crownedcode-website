@@ -1,0 +1,57 @@
+---
+title: "Why most internal AI projects fail (and what we do differently)"
+description: "The pattern we see in every failed AI engagement is the same. It has nothing to do with the model and everything to do with what gets skipped at the start."
+date: "2026-04-14"
+author: "Crowned Code"
+tags: ["AI Integration", "Delivery"]
+---
+
+We've inherited or replaced a lot of AI projects in the last year. The autopsy is almost always the same: the demo worked, the prototype worked, the pilot kind of worked, and then six months later nobody is using it and nobody can explain exactly why. The team is quietly looking for a new vendor and pretending the previous engagement was a "learning experience."
+
+The failure mode is so consistent that we now treat avoiding it as the actual job. Here's the pattern, in the order it usually unfolds.
+
+## Failure pattern #1: the demo is the deliverable
+
+The kickoff goes well. The vendor builds a clean demo against a snapshot of your data and shows it to leadership. The demo is impressive. Everyone agrees to expand the scope.
+
+Then the project meets reality: live data instead of a snapshot. Edge cases the demo never touched. Permissions, audit trails, security review. The original demo was 5% of the work and 95% of the visible progress. The other 95% is months of unglamorous engineering and nobody told leadership it was coming.
+
+**What we do differently:** in the kickoff, we explicitly call out the demo-to-production gap and what each phase will cost. The demo doesn't earn a celebration. The first production deployment does.
+
+## Failure pattern #2: nobody owns the data
+
+AI quality is downstream of data quality. If your customer records are duplicated, your knowledge base is six versions of three documents, and nobody knows which fields in your CRM are actually maintained — the AI is going to behave exactly as well as that mess allows.
+
+Most teams treat data cleanup as someone else's problem, or as a "phase 2" item. Then the model trained on the messy data performs poorly, and the diagnosis becomes "the model isn't good enough." The model is fine. The data is the problem.
+
+**What we do differently:** the first two weeks of any RAG engagement are spent in the data, not in the prompt. We catalog what's there, what's stale, what's authoritative, and what's missing. Sometimes the project changes shape entirely because the real problem turns out to be data, not AI.
+
+## Failure pattern #3: no eval suite, no feedback loop
+
+The system gets deployed. Users find that it works "sometimes." There's no formal definition of what "working" means, so everyone has a different opinion. The engineering team can't reproduce the failures. The product team can't quantify them. The relationship deteriorates because nobody has a shared truth.
+
+This is the most preventable failure. A proper eval suite — a set of representative inputs with expected outputs or quality criteria — turns "feels broken" into "regressed on 14 of 200 test cases" and tells the team exactly what to fix.
+
+**What we do differently:** we build the eval suite alongside the first feature, not after the first complaint. Every prompt change, every model swap, every data update gets scored against the suite before it ships. The number is the conversation.
+
+## Failure pattern #4: the system has no oncall
+
+This one will sound boring. It will save your project anyway.
+
+AI systems fail in different ways than traditional software. The model gets deprecated and stops working. The provider raises prices and your monthly bill triples. A new edge case appears and the system silently produces garbage. The vector database fills up. The retry logic gets stuck.
+
+If no one on your team owns the operational health of the system — checking dashboards, watching costs, responding to errors — it will degrade in slow motion. By the time users complain, you've been bleeding quality for weeks.
+
+**What we do differently:** every system we ship comes with a runbook, a cost dashboard, and a clear single point of accountability. If it's not yours, it's ours, but it is always *someone's*.
+
+## Failure pattern #5: the goal was never clear
+
+This is the meta-failure that produces all the others. The project started with "we should be using AI" instead of "we are trying to reduce ticket response time" or "we are trying to qualify more leads." Without a target, every decision becomes a matter of taste, and tasteful decisions don't compound.
+
+**What we do differently:** we will not start an engagement without a measurable target. If we cannot agree on the number that defines success, we tell the client to come back when they can — because we are not interested in another well-meaning AI project that quietly dies in production.
+
+## The pattern in one sentence
+
+The projects that succeed are the projects where someone is honest about cost, honest about data, honest about quality, honest about operations, and honest about the goal. The technology is almost never the limit. The honesty usually is.
+
+If you've been through one of these and are looking for the next attempt to go differently, [we should talk](/contact). We'll tell you whether we're the right fit, and if we're not, who is.
