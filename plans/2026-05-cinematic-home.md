@@ -73,9 +73,14 @@ This subtask upgraded `/` to feel like a $10k brand site without rewriting the e
 
 - Produce hero loop mp4 + drop in `public/cinematic/hero-loop.mp4`.
 - Produce "how we work" scroll-scrub mp4 + drop in `public/cinematic/how-we-work.mp4`.
-- Apply `dof-blur-1` / `dof-blur-2` utility to `StackingCards` for camera focal-plane effect (utility shipped but not yet wired into the component).
-- Mobile particle / postprocessing tuning after first real-device measurement.
-- Carry cinematic treatment into `/services`, `/services/ai-integration`, `/about`, `/blog`.
+
+## Completed (2026-05-25 session)
+
+- ✓ `dof-blur` scroll-driven via `useTransform` wired into `StackingCards` — cards blur 0→3px as they're pushed behind.
+- ✓ Cinematic treatment carried into `/services`, `/services/ai-integration`, `/about`, `/blog` — `LetterMaskReveal` on all hero h1s, gold shimmer gradient on second line, `glow-gold` on eyebrows, `bloom-gold` on icon containers and founder avatars, `AmbientOrbs` in hero sections.
+- ✓ Mobile tuning: canvas DPR capped at 1×1 on mobile, particles 140→60, `AmbientOrbs` 4→2.
+- ✓ Crown canvas z-index fixed (`-z-10`) so it always renders behind page text.
+- ✓ `ScrollyStory` heading nav-clip fixed — `pt-20` on inner content wrapper so heading clears the fixed nav on short viewports.
 
 ## Verification (done)
 
