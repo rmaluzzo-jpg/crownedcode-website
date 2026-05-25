@@ -21,9 +21,10 @@ const ORBS: Orb[] = [
 ];
 
 export function AmbientOrbs() {
+  const orbs = typeof window !== "undefined" && window.innerWidth < 768 ? ORBS.slice(0, 2) : ORBS;
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      {ORBS.map((o, i) => (
+      {orbs.map((o, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full"

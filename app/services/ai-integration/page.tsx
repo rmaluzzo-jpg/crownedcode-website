@@ -4,7 +4,7 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/marketing/reveal
 import { TiltCard } from "@/components/marketing/tilt-card";
 import { MagneticButton } from "@/components/marketing/magnetic-button";
 import { AuroraSpotlight } from "@/components/marketing/aurora-spotlight";
-import { WordReveal } from "@/components/marketing/word-reveal";
+import { LetterMaskReveal } from "@/components/marketing/letter-mask-reveal";
 
 export const metadata: Metadata = {
   title: "AI Integration for Businesses",
@@ -60,16 +60,18 @@ export default function AIIntegrationPage() {
         <AuroraSpotlight />
         <div className="relative mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+            <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
               AI Integration
             </p>
           </Reveal>
           <h1 className="mt-3 text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
-            <WordReveal text="AI that actually" />
+            <LetterMaskReveal text="AI that actually" delay={0.05} />
             <br />
-            <WordReveal text="does the work." delay={0.25} highlight={["does", "the", "work."]} />
+            <span className="glow-gold inline-block">
+              <LetterMaskReveal text="does the work." delay={0.35} gradient />
+            </span>
           </h1>
-          <Reveal delay={0.6}>
+          <Reveal delay={0.7}>
             <p className="mx-auto mt-6 max-w-xl text-balance text-[17px] leading-[1.7] text-text-secondary">
               We don&apos;t hand you a chatbot and call it transformation. We
               integrate AI into your real workflows, measure what changes, and
@@ -90,7 +92,7 @@ export default function AIIntegrationPage() {
       <section className="container-page py-20">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+            <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
               What we build
             </p>
             <h2 className="mt-3 text-balance text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em]">
@@ -105,7 +107,7 @@ export default function AIIntegrationPage() {
             return (
               <RevealItem key={w.title}>
                 <TiltCard className="h-full p-9">
-                  <div className="mb-5 flex size-11 items-center justify-center rounded-xl bg-gold-dim text-gold">
+                  <div className="bloom-gold mb-5 flex size-11 items-center justify-center rounded-xl bg-gold-dim text-gold">
                     <Icon className="size-5" />
                   </div>
                   <h3 className="text-[18px] font-bold tracking-tight">
@@ -125,7 +127,7 @@ export default function AIIntegrationPage() {
         <div className="container-page py-20">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+              <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
                 How we think about it
               </p>
               <h2 className="mt-3 text-balance text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em]">

@@ -16,6 +16,7 @@ export default function Hero3DScene() {
   const [assetKind, setAssetKind] = useState<"glb" | "stl" | "none" | "checking">(
     "checking",
   );
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   useEffect(() => {
     let cancelled = false;
@@ -45,7 +46,7 @@ export default function Hero3DScene() {
     <Canvas
       camera={{ position: [0, 0, 6], fov: 45 }}
       gl={{ antialias: true, alpha: true, premultipliedAlpha: false }}
-      dpr={[1, 1.6]}
+      dpr={isMobile ? [1, 1] : [1, 1.5]}
     >
       {/* No opaque background — canvas is transparent so DOM content shows through */}
       <ambientLight intensity={0.25} />
@@ -59,7 +60,7 @@ export default function Hero3DScene() {
           {assetKind === "glb" && <CrownGLB />}
           {assetKind === "stl" && <CrownSTL />}
           {(assetKind === "none" || assetKind === "checking") && <ProceduralShards />}
-          <ParticleField count={140} />
+          <ParticleField count={isMobile ? 60 : 140} />
         </ScrollDolly>
       </Suspense>
     </Canvas>

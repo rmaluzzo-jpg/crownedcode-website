@@ -78,7 +78,7 @@ export function ScrollyStory({
         {/* ambient backdrop that shifts subtly per step */}
         <BackdropPulse progress={scrollYProgress} stepCount={steps.length} />
 
-        <div className="container-page relative w-full">
+        <div className="container-page relative w-full pt-20">
           {(eyebrow || heading) && (
             <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
               {eyebrow && (

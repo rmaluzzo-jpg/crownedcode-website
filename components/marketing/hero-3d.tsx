@@ -22,7 +22,7 @@ export function Hero3D({ className, persistent = false }: Props) {
     <div
       className={cn(
         persistent
-          ? "pointer-events-none fixed inset-0 z-0 motion-reduce:hidden"
+          ? "pointer-events-none fixed inset-0 -z-10 motion-reduce:hidden"
           : "pointer-events-none absolute inset-0 -z-10 motion-reduce:hidden",
         className,
       )}

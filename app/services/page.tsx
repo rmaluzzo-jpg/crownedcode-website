@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { ArrowRight, Brain, Wrench, Workflow, Smartphone, Database, Boxes } from "lucide-react";
 import { Reveal, RevealStagger, RevealItem } from "@/components/marketing/reveal";
 import { TiltCard } from "@/components/marketing/tilt-card";
+import { LetterMaskReveal } from "@/components/marketing/letter-mask-reveal";
+import { AmbientOrbs } from "@/components/marketing/ambient-orbs";
 
 export const metadata: Metadata = {
   title: "Services — Custom Software for Any Business Need",
@@ -58,18 +60,21 @@ const capabilities = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="container-page pt-20 pb-14 text-center md:pt-28 md:pb-20">
+      <section className="relative container-page pt-20 pb-14 text-center md:pt-28 md:pb-20">
+        <AmbientOrbs />
         <Reveal>
-          <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+          <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
             What we build
           </p>
         </Reveal>
-        <Reveal delay={0.08}>
-          <h1 className="mx-auto mt-3 max-w-3xl text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
-            Custom software, for anything your business needs.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.15}>
+        <h1 className="mx-auto mt-3 max-w-3xl text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
+          <LetterMaskReveal text="Custom software," delay={0.05} />
+          <br />
+          <span className="glow-gold inline-block">
+            <LetterMaskReveal text="for anything your business needs." delay={0.35} gradient />
+          </span>
+        </h1>
+        <Reveal delay={0.7}>
           <p className="mx-auto mt-6 max-w-xl text-balance text-[17px] leading-[1.7] text-text-secondary">
             We don&apos;t fit your problem into a product. We build the software
             your business actually needs — from a one-week internal tool to a
@@ -86,7 +91,7 @@ export default function ServicesPage() {
               <RevealItem key={c.title}>
                 <Link href={c.href} className="block h-full">
                   <TiltCard className="flex h-full flex-col p-8">
-                    <div className="mb-6 flex size-12 items-center justify-center rounded-xl bg-gold-dim text-gold">
+                    <div className="bloom-gold mb-6 flex size-12 items-center justify-center rounded-xl bg-gold-dim text-gold">
                       <Icon className="size-5" />
                     </div>
                     <div className="flex items-center gap-2">

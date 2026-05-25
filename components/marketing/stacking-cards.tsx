@@ -98,9 +98,10 @@ function StackCard({
     offset: ["start start", "end start"],
   });
 
-  // Scale & opacity tail-down as the next card stacks over this one.
+  // Scale, opacity, and blur tail-down as the next card stacks over this one.
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1 - (total - index) * 0.04]);
   const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.4]);
+  const filter = useTransform(scrollYProgress, [0, 0.6, 1], ["blur(0px)", "blur(1px)", "blur(3px)"]);
 
   return (
     <div
@@ -109,7 +110,7 @@ function StackCard({
       style={{ top: `${80 + index * 24}px`, marginBottom: "8vh" }}
     >
       <motion.article
-        style={{ scale, opacity }}
+        style={{ scale, opacity, filter }}
         className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-12"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />

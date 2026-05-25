@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Reveal, RevealStagger, RevealItem } from "@/components/marketing/reveal";
 import { TiltCard } from "@/components/marketing/tilt-card";
+import { LetterMaskReveal } from "@/components/marketing/letter-mask-reveal";
+import { AmbientOrbs } from "@/components/marketing/ambient-orbs";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,18 +28,21 @@ const founders = [
 export default function AboutPage() {
   return (
     <>
-      <section className="container-page pt-20 pb-12 text-center md:pt-28">
+      <section className="relative container-page pt-20 pb-12 text-center md:pt-28">
+        <AmbientOrbs />
         <Reveal>
-          <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+          <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
             About
           </p>
         </Reveal>
-        <Reveal delay={0.08}>
-          <h1 className="mx-auto mt-3 max-w-3xl text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
-            A two-founder studio that ships.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.15}>
+        <h1 className="mx-auto mt-3 max-w-3xl text-balance text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
+          <LetterMaskReveal text="A two-founder studio" delay={0.05} />
+          <br />
+          <span className="glow-gold inline-block">
+            <LetterMaskReveal text="that ships." delay={0.35} gradient />
+          </span>
+        </h1>
+        <Reveal delay={0.7}>
           <p className="mx-auto mt-6 max-w-2xl text-balance text-[17px] leading-[1.7] text-text-secondary">
             Crowned Code is an independent software studio. We take on the
             projects we&apos;re uniquely good at, ship them properly, and move on
@@ -52,7 +57,7 @@ export default function AboutPage() {
           {founders.map((f) => (
             <RevealItem key={f.name}>
               <TiltCard className="p-9 text-center">
-                <div className="mx-auto mb-5 flex size-20 items-center justify-center rounded-full border-2 border-gold/30 bg-gradient-to-br from-gold-dim to-transparent text-[26px] font-bold tracking-tight text-gold">
+                <div className="bloom-gold mx-auto mb-5 flex size-20 items-center justify-center rounded-full border-2 border-gold/30 bg-gradient-to-br from-gold-dim to-transparent text-[26px] font-bold tracking-tight text-gold">
                   {f.initials}
                 </div>
                 <h2 className="text-[20px] font-bold tracking-tight">{f.name}</h2>
@@ -73,7 +78,7 @@ export default function AboutPage() {
           <div className="mx-auto grid max-w-4xl gap-12 md:grid-cols-2">
             <Reveal>
               <div>
-                <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+                <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
                   How we work
                 </p>
                 <h2 className="mt-3 text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold leading-[1.15] tracking-[-0.02em]">

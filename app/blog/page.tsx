@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { getAllPosts, formatDate } from "@/lib/content";
 import { Reveal, RevealStagger, RevealItem } from "@/components/marketing/reveal";
 import { TiltCard } from "@/components/marketing/tilt-card";
+import { LetterMaskReveal } from "@/components/marketing/letter-mask-reveal";
+import { AmbientOrbs } from "@/components/marketing/ambient-orbs";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,18 +18,17 @@ export default async function BlogPage() {
 
   return (
     <section className="container-page py-20 md:py-28">
-      <div className="mx-auto max-w-2xl text-center">
+      <div className="relative mx-auto max-w-2xl text-center">
+        <AmbientOrbs />
         <Reveal>
-          <p className="text-[12px] font-semibold uppercase tracking-[2px] text-gold">
+          <p className="glow-gold text-[12px] font-semibold uppercase tracking-[2px] text-gold">
             Blog
           </p>
         </Reveal>
-        <Reveal delay={0.08}>
-          <h1 className="mt-3 text-balance text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
-            Notes from the studio.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.15}>
+        <h1 className="mt-3 text-balance text-[clamp(2.25rem,5vw,3.75rem)] font-extrabold leading-[1.05] tracking-[-0.025em]">
+          <LetterMaskReveal text="Notes from the studio." delay={0.05} gradient />
+        </h1>
+        <Reveal delay={0.6}>
           <p className="mt-5 text-balance text-[16px] leading-[1.75] text-text-secondary">
             Posts on AI integration, custom software, and what we&apos;ve
             learned shipping things for serious businesses.
