@@ -45,3 +45,6 @@ drizzle/
 
 # local-only source assets (3D source files, raw video, etc.)
 assets/source/
+
+.vercel
+.env*
